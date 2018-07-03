@@ -17,11 +17,14 @@
     <h4 class="card-title"><?php echo $row['name']?></h4>
     <p class="card-text"><?php echo $row['des']?></p>
     <p class="card-text">Rs. <?php echo number_format($row['price'])?> (LKR)</p>
-    <a href="#" 
-            class="btn btn-outline-info"
+    <a href="javascript:void(0)" 
+            class="btn btn-outline-info add_to_cart"
             productId="<?php echo $row[0];?>"
             productPrice="<?php echo $row['price']?>"
-            productName ="<?php echo $row['name']?>"      
+            productName ="<?php echo $row['name']?>"   
+            image="Images/sides/<?php echo $row['image']?>"
+            category='Sides' 
+                quantity = '1'      
                 >Add to cart</a>
   </div>
 </div>

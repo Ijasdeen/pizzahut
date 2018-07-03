@@ -227,8 +227,7 @@ opacity: 0.5;
     }
 }
 
-
-.pizza-hut{
+ .pizza-hut{
     margin-top: 30px;
     .card{
         width: 300px;
@@ -246,8 +245,43 @@ opacity: 0.5;
     
 }
 
-.sides-section , .drinks-beverages{
+.sides-section , .drinks-beverages, .pasta-section{
    margin-top: 30px;   
 }
 
+#cartTable{
+    margin-top: 50px;
+    
+    .img-division {
+        padding-left: 50px;
+        margin-left: 5px;
+        img{
+            width: 100%; 
+        }
+    }
+    
+   input {
+            display: block;
+            background: none;
+            width: 100%;
+            padding: 5px 25px;
+            text-align: center;
+            border: none;
 
+        }
+    
+    button {
+            border: none;
+            font-size: 20px;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+       
+}
+
+#subTotalArea{
+ padding-bottom: 30px;   
+}
+
+
+ 

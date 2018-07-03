@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/css/style.css">
     <link rel="stylesheet" href="css/caraousalStyle.css">
-
+<link rel="stylesheet" href="css/drawer.css">
     <title>Hello, world!</title>
 </head>
 
-<body>
+<body class="drawer drawer--right">
     <header>
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light navbar sticky-top">
@@ -62,6 +62,29 @@
             </nav>
         </div>
     </header>
+    
+    <!--        Drawer section-->
+        <div class="drawer-section" id="searchArea">
+            <nav class="drawer-nav">
+                <div class="js-drower-close">
+                    <a href="javascript:void(0);" class="icon-fallback-text" id="closeDrawer">
+            <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+           </a>
+
+                </div>
+                <div class="text-center drawer-heading">
+                    <h4 class="search-header">
+<!--                        Text will be rendered from jquery-->
+                    </h4>
+                </div>
+                <div class="form-area">
+<!--                  Contents will be rendered dynamically via jquery-->
+                  
+                </div>
+            </nav>
+        </div>
+    
+    
 
     <!--    Sub-header-->
     <div class="sub-header">

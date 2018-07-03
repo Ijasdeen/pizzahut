@@ -168,7 +168,30 @@ header nav {
 .wings-section {
   margin-top: 30px; }
 
-.sides-section, .drinks-beverages {
+.sides-section, .drinks-beverages, .pasta-section {
   margin-top: 30px; }
+
+#cartTable {
+  margin-top: 50px; }
+  #cartTable .img-division {
+    padding-left: 50px;
+    margin-left: 5px; }
+    #cartTable .img-division img {
+      width: 100%; }
+  #cartTable input {
+    display: block;
+    background: none;
+    width: 100%;
+    padding: 5px 25px;
+    text-align: center;
+    border: none; }
+  #cartTable button {
+    border: none;
+    font-size: 20px;
+    opacity: 0.5;
+    cursor: pointer; }
+
+#subTotalArea {
+  padding-bottom: 30px; }
 
 /*# sourceMappingURL=style.css.map */

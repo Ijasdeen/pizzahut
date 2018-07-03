@@ -82,7 +82,11 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/drawer.js"></script>
     <script src="parallax/jquery.paroller.min.js"></script>
+    <!-- iScroll -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
     <script>
         $('.jumbotron').paroller();
     </script>
