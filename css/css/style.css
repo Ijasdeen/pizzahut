@@ -1,1 +1,33 @@
- 
+.container-fluid {
+  padding: 0px 0px 0px 0px !important; }
+
+a {
+  color: black !important; }
+
+header nav {
+  background-color: #f8f8f8 !important; }
+
+.sub-header {
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 80px; }
+  .sub-header img {
+    width: 50px;
+    margin-left: 30px; }
+  .sub-header span {
+    font-size: 20px;
+    text-shadow: 0 0 20px #ff005b; }
+
+.caraousal-division .container-fluid {
+  padding-left: 0px !important; }
+.caraousal-division .carousel-inner img {
+  width: 100%;
+  height: 100%; }
+
+.ads {
+  margin-top: 50px;
+  border-top: 2px solid red;
+  border-bottom: 2px solid red; }
+
+/*# sourceMappingURL=style.css.map */
