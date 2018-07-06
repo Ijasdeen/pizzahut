@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Shrikhand");
 .container-fluid {
   padding: 0px 0px 0px 0px !important; }
 
@@ -173,6 +174,9 @@ header nav {
 
 #cartTable {
   margin-top: 50px; }
+  #cartTable #closeDrawer {
+    padding-left: 80px;
+    color: red !important; }
   #cartTable .img-division {
     padding-left: 50px;
     margin-left: 5px; }
@@ -190,6 +194,18 @@ header nav {
     font-size: 20px;
     opacity: 0.5;
     cursor: pointer; }
+  #cartTable .search-header:after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 35px;
+    margin-top: -10em !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000000;
+    opacity: 0.5; }
 
 #subTotalArea {
   padding-bottom: 30px; }

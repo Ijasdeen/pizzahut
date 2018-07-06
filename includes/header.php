@@ -1,4 +1,4 @@
-<?php require_once('Connection/connection.php')?>
+<?php require_once('Connection/connection.php')?> <!--Connecting database-->
 <!doctype html>
 <html lang="en">
 
@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="css/css/style.css">
     <link rel="stylesheet" href="css/caraousalStyle.css">
 <link rel="stylesheet" href="css/drawer.css">
-    <title>Hello, world!</title>
+    <title>Pizza hut</title>
 </head>
 
 <body class="drawer drawer--right">
     <header>
         <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light navbar sticky-top">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">Pizza hut</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -43,8 +43,7 @@
                                 <a class="dropdown-item" href="drinks.php">DRINKS</a>
                                 <a class="dropdown-item" href="pasta.php">PASTA</a>
 
-
-                            </div>
+                      </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -52,10 +51,13 @@
                     </ul>
                     <div class="d-flex flex-row ml-auto">
                         <div class="p-2">
-                            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Sign Up</a>
+                            <a href="javascript:void(0);"><i class="fa fa-user" aria-hidden="true"></i> Sign Up</a>
                         </div>
                         <div class="p-2">
-                            <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</a>
+                            <a href="javascript:void(0);"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</a>
+                        </div>
+                        <div class="p-2">
+                            <a href="javascript:void(0);" class="drawer-toggle"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-info shopping-cart">0</span></a>
                         </div>
                     </div>
                 </div>
@@ -74,7 +76,7 @@
                 </div>
                 <div class="text-center drawer-heading">
                     <h4 class="search-header">
-<!--                        Text will be rendered from jquery-->
+                      Product Details 
                     </h4>
                 </div>
                 <div class="form-area">

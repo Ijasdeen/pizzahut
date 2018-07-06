@@ -1,13 +1,15 @@
 $(function(){
+    
+    //Adding to cart when ".add_to_cart" button is clicked
    $(".add_to_cart").click(function(){
-       $(this).text('Adding to cart...');
+               $('.drawer').drawer();
+        $(this).text('Adding to cart...');
       let image = $(this).attr('image');
        let productId= parseInt($(this).attr('productId'));
        let productPrice =parseFloat( $(this).attr('productPrice'));
        let productName= String($(this).attr('productName'));
        let categoryName = String($(this).attr('category'));
-       let quantity =parseInt( $(this).attr('quantity'));
-        $('.drawer').drawer();
+       let quantity =parseInt($(this).attr('quantity'));
        $.ajax({
           url:'action.php',
            method:'POST',
@@ -16,6 +18,7 @@ $(function(){
                console.log(data);
                $(".add_to_cart").text('Add to cart');
                 view();
+               countTotalProducts();
            },
            error:function(err){
            console.log(err); 
@@ -46,15 +49,16 @@ $(function(){
     
         $("body").delegate('.increaseQuantity','click',function(){
          let itemId = $(this).attr('dataId');
-         let category_name=$(this).attr('category_name');
+         let category_name=String($(this).attr('category_name'));
          
-         //,price:price,name:name,image:image
+         
          $.ajax({
              url:'action.php',
              method:'POST',
              data:{increaseQuantity:1,id:itemId,category_name:category_name},
              success:function(data){
                  view();
+                 countTotalProducts();
                  console.log(data);
                
               },
@@ -67,19 +71,20 @@ $(function(){
     
     
    $("body").delegate('.decreaseQuantity','click',function(){
-        let itemId = $(this).attr('dataId');
-         let category_name=$(this).attr('category_name');
-         let quantity = $(this).attr('quantity');
-       if(isNaN(quantity) || quantity <=0){
+        let itemId =parseInt( $(this).attr('dataId'));
+         let category_name=String($(this).attr('category_name'));
+         let quantity = parseInt($(this).attr('quantity'));
+       if(isNaN(quantity) || quantity <=1){
            quantity=1;
+           return; 
        }
-       alert(quantity); 
         $.ajax({
              url:'action.php',
              method:'POST',
              data:{decreaseQuantity:1,id:itemId,category_name:category_name},
              success:function(data){
                  view();
+                 countTotalProducts();
                  console.log(data);
                
               },
@@ -93,4 +98,81 @@ $(function(){
       
    });
     
-});
+     countTotalProducts();
+    function countTotalProducts(){
+        $.ajax({
+            url:'action.php',
+            method:'POST',
+            data:{enableCount:1},
+            success:function(data){
+             $(".shopping-cart").html(data);     
+            }
+        });
+    }
+    
+    $(".drawer-toggle").click(function(){
+           $('.drawer').drawer();
+    });
+    
+    
+    
+    $("body").delegate('.deleteProduct','click',function(){
+        
+        let productId = parseInt($(this).attr('removeProductId'));
+        let category_name= String($(this).attr('category_name'));
+        
+        if(productId===0){
+            return; 
+        }
+        
+          $.ajax({
+            url:'action.php',
+            method:'POST',
+            data:{enableRemove:1,productId:productId,category_name:category_name},
+            success:function(data){
+                view();
+                countTotalProducts();
+                
+            },
+          error:function(err){
+              console.log(err); 
+          }
+        })
+        
+    });
+    
+  
+    
+    $("body").delegate('.quantityValue','change',function(){
+         let itemId= parseInt($(this).attr('dataId'));
+          let category_name=String( $(this).attr('category_name'));
+          let value = parseInt($(this).val());
+          
+            if(value <=1 || isNaN(value)){
+                value=1; 
+            }
+          
+            $.ajax({
+           url:'action.php',
+            method:'POST',
+            data:{quantityEditEnable:1,itemId:itemId,value:value,category_name:category_name},
+            success:function(data){
+              console.log(data);
+               view();
+                 countTotalProducts();
+               
+            },
+            error:function(err){
+                console.log(err); 
+            }
+        });
+    });
+    
+    
+     $('#closeDrawer').click(function(){
+        $('.drawer').drawer('close');
+       
+    })
+    
+    
+}); //Document finishes
