@@ -227,9 +227,10 @@ header nav {
   margin-top: 30px;
   margin-left: 20px; }
   .js-drower-close #closeDrawer {
-    border-radius: 360%;
+    border-radius: 5px 0px 5px 0px;
     border: 2px solid red;
-    padding: 20px; }
+    transition: 100ms all ease-in-out;
+    padding: 5px; }
   .js-drower-close #closeDrawer:hover {
     transition: 100ms all ease-in-out;
     background-color: red;

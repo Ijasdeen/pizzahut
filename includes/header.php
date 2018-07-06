@@ -79,6 +79,7 @@
                       Product Details 
                     </h4>
                 </div>
+                <hr>
                 <div class="form-area">
 <!--                  Contents will be rendered dynamically via jquery-->
                   
