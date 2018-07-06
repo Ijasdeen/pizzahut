@@ -1,8 +1,11 @@
-
 @import url('https://fonts.googleapis.com/css?family=Shrikhand');
+@import url('https://fonts.googleapis.com/css?family=Lora');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond');
 
-
-
+body{
+    font-family: 'EB Garamond', serif;
+}
 .container-fluid {
     padding: 0px 0px 0px 0px !important;
 }
@@ -10,21 +13,30 @@
 a {
     color: black !important;
 }
-ul{
-    li{
-        list-style: none; 
-        
+
+ul {
+    li {
+        list-style: none;
+        font-family: 'Lora', serif;
     }
 }
 
-.btn-outline-info:hover{
-    color: white !important; 
+.btn-outline-info:hover {
+    color: white !important;
 }
 
 header {
     nav {
         background-color: rgb(248, 248, 248) !important;
+        font-family: 'Lora', serif;
 
+        .dropdown-menu {
+            a:hover {
+                background-color: lightgray;
+                color: white;
+                transition: 100ms all ease-in-out;
+            }
+        }
     }
 }
 
@@ -41,7 +53,7 @@ header {
     }
     span {
         font-size: 20px;
-
+        font-family: 'Shrikhand', cursive;
         text-shadow: 0 0 20px #ff005b;
     }
 }
@@ -65,6 +77,7 @@ header {
     margin-top: 50px;
     border-top: 2px solid red;
     border-bottom: 2px solid red;
+    
 }
 
 .parallax-section {
@@ -95,16 +108,16 @@ header {
     border-top: 3px solid black;
     border-bottom: 3px solid black;
     padding: 20px;
-    .subSocial-area{
-         
-        li{
-              
-            display: inline-block !important; 
+    .subSocial-area {
+
+        li {
+
+            display: inline-block !important;
         }
     }
-    
-    ul{
-        li{
+
+    ul {
+        li {
             display: inline-block;
         }
     }
@@ -119,18 +132,18 @@ header {
         margin-bottom: 10px;
         margin-right: 5px;
         color: white;
-        background-color:rgb(72, 103, 170);
+        background-color: rgb(72, 103, 170);
         transition: 300ms all ease-in-out;
     }
-    
-    .social-facebook:hover{
+
+    .social-facebook:hover {
         color: rgb(72, 103, 170);
-        background-color: white; 
-        transition: 300ms all ease-in-out; 
+        background-color: white;
+        transition: 300ms all ease-in-out;
     }
-    
-    .social-twitter{
-         font-size: 20px;
+
+    .social-twitter {
+        font-size: 20px;
         height: 30px;
         width: 30px;
         text-align: center;
@@ -139,18 +152,18 @@ header {
         margin-bottom: 10px;
         margin-right: 5px;
         color: white;
-        background-color:rgb(29, 161, 242);
+        background-color: rgb(29, 161, 242);
         transition: 300ms all ease-in-out;
     }
-    
-    .social-twitter:hover{
-        background-color: white; 
+
+    .social-twitter:hover {
+        background-color: white;
         color: rgb(29, 161, 242);
-        transition: 300ms all ease-in-out; 
+        transition: 300ms all ease-in-out;
     }
-    
-    .social-youtube{
-            font-size: 20px;
+
+    .social-youtube {
+        font-size: 20px;
         height: 30px;
         width: 30px;
         text-align: center;
@@ -159,17 +172,17 @@ header {
         margin-bottom: 10px;
         margin-right: 5px;
         color: white;
-        background-color:rgb(255, 0, 0);
+        background-color: rgb(255, 0, 0);
         transition: 300ms all ease-in-out;
     }
-    
-    .social-youtube:hover{
+
+    .social-youtube:hover {
         color: rgb(255, 0, 0);
-        background-color: white; 
+        background-color: white;
     }
-    
-    .apple-app{
-           font-size: 20px;
+
+    .apple-app {
+        font-size: 20px;
         height: 30px;
         width: 30px;
         text-align: center;
@@ -178,18 +191,18 @@ header {
         margin-bottom: 10px;
         margin-right: 5px;
         color: white;
-        background-color:rgb(102, 102, 102);
+        background-color: rgb(102, 102, 102);
         transition: 300ms all ease-in-out;
     }
-    
-    .apple-app:hover{
+
+    .apple-app:hover {
         color: rgb(102, 102, 102);
-        background-color: white; 
-        transition: 300ms all ease-in-out; 
+        background-color: white;
+        transition: 300ms all ease-in-out;
     }
-    
-    .android-app{
-           font-size: 20px;
+
+    .android-app {
+        font-size: 20px;
         height: 30px;
         width: 30px;
         text-align: center;
@@ -198,116 +211,134 @@ header {
         margin-bottom: 10px;
         margin-right: 5px;
         color: white;
-        background-color:rgb(164, 198, 57);
+        background-color: rgb(164, 198, 57);
         transition: 300ms all ease-in-out;
     }
-    .android-app:hover{
+    .android-app:hover {
         color: rgb(164, 198, 57);
-        background-color: white; 
+        background-color: white;
     }
 
 }
 
-.about-us{
+.about-us {
+    font-family: 'Crimson Text', serif;
     margin-top: 20px;
-    h3:after{
-       content: "";
-display: block;
-height: 3px;
-width: 35px;
-margin: -10px auto;
-position: absolute;
-bottom: 0;
-left: 0;
-right: 0;
-background: #000000;
-opacity: 0.5;
+    h3:after {
+        content: "";
+        display: block;
+        height: 3px;
+        width: 35px;
+        margin: -10px auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #000000;
+        opacity: 0.5;
     }
-    
-    .pragrap-division{
+
+    .pragrap-division {
         margin-top: 20px;
-        p{
+        p {
             line-height: 30px;
         }
     }
 }
 
- .pizza-hut{
+.pizza-hut {
     margin-top: 30px;
-    .card{
+    .card {
         width: 300px;
-       
+
     }
-    .col-md-3{
-         
+    .col-md-3 {
+
         margin-bottom: 20px;
     }
 
 }
 
-.wings-section{
+.wings-section {
     margin-top: 30px;
-    
+
 }
 
-.sides-section , .drinks-beverages, .pasta-section{
-   margin-top: 30px;   
+.sides-section,
+.drinks-beverages,
+.pasta-section {
+    margin-top: 30px;
 }
 
-#cartTable{
+#cartTable {
     margin-top: 50px;
-    
-    #closeDrawer{
+
+    #closeDrawer {
         padding-left: 80px;
-        color: red !important; 
-        
+        color: red !important;
+
     }
-    
+
     .img-division {
         padding-left: 50px;
         margin-left: 5px;
-        img{
-            width: 100%; 
+        img {
+            width: 100%;
         }
     }
-    
-   input {
-            display: block;
-            background: none;
-            width: 100%;
-            padding: 5px 25px;
-            text-align: center;
-            border: none;
 
-        }
-    
+    input {
+        display: block;
+        background: none;
+        width: 100%;
+        padding: 5px 25px;
+        text-align: center;
+        border: none;
+
+    }
+
     button {
-            border: none;
-            font-size: 20px;
-            opacity: 0.5;
-            cursor: pointer;
-        }
+        border: none;
+        font-size: 20px;
+        opacity: 0.5;
+        cursor: pointer;
+    }
+
+
+    .search-header:after {
+        content: "";
+        display: block;
+        height: 3px;
+        width: 35px;
+        margin-top: -10em !important;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #000000;
+        opacity: 0.5;
+    }
+
+}
+
+.js-drower-close{
+    margin-top: 30px;
+    margin-left: 20px;
+    #closeDrawer{
+      border-radius: 360%; 
+        border: 2px solid red; 
+        padding: 20px;
        
+    }
     
- .search-header:after {
-    content: "";
-    display: block;
-    height: 3px;
-    width: 35px;
-    margin-top: -10em !important;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #000000;
-    opacity: 0.5;
+    #closeDrawer:hover{
+        transition: 100ms all ease-in-out;
+        background-color: red; 
+        color: white; 
+    } 
+    
 }
 
+#subTotalArea {
+    padding-bottom: 30px;
 }
-
-#subTotalArea{
- padding-bottom: 30px;   
-}
-
-
- 

@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Shrikhand");
+@import url("https://fonts.googleapis.com/css?family=Lora");
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text");
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond");
+body {
+  font-family: 'EB Garamond', serif; }
+
 .container-fluid {
   padding: 0px 0px 0px 0px !important; }
 
@@ -6,13 +12,19 @@ a {
   color: black !important; }
 
 ul li {
-  list-style: none; }
+  list-style: none;
+  font-family: 'Lora', serif; }
 
 .btn-outline-info:hover {
   color: white !important; }
 
 header nav {
-  background-color: #f8f8f8 !important; }
+  background-color: #f8f8f8 !important;
+  font-family: 'Lora', serif; }
+  header nav .dropdown-menu a:hover {
+    background-color: lightgray;
+    color: white;
+    transition: 100ms all ease-in-out; }
 
 .sub-header {
   background-color: black;
@@ -24,6 +36,7 @@ header nav {
     margin-left: 30px; }
   .sub-header span {
     font-size: 20px;
+    font-family: 'Shrikhand', cursive;
     text-shadow: 0 0 20px #ff005b; }
 
 .caraousal-division .container-fluid {
@@ -141,6 +154,7 @@ header nav {
     background-color: white; }
 
 .about-us {
+  font-family: 'Crimson Text', serif;
   margin-top: 20px; }
   .about-us h3:after {
     content: "";
@@ -169,7 +183,9 @@ header nav {
 .wings-section {
   margin-top: 30px; }
 
-.sides-section, .drinks-beverages, .pasta-section {
+.sides-section,
+.drinks-beverages,
+.pasta-section {
   margin-top: 30px; }
 
 #cartTable {
@@ -206,6 +222,18 @@ header nav {
     right: 0;
     background: #000000;
     opacity: 0.5; }
+
+.js-drower-close {
+  margin-top: 30px;
+  margin-left: 20px; }
+  .js-drower-close #closeDrawer {
+    border-radius: 360%;
+    border: 2px solid red;
+    padding: 20px; }
+  .js-drower-close #closeDrawer:hover {
+    transition: 100ms all ease-in-out;
+    background-color: red;
+    color: white; }
 
 #subTotalArea {
   padding-bottom: 30px; }
