@@ -38,7 +38,7 @@ $(function(){
             method:'POST',
             data:{enableCookies:1},
             success:function(data){
-                $(".form-area").html(data);
+                $(".show-data").html(data);
             }
         });
     }
@@ -172,6 +172,31 @@ $(function(){
      $('#closeDrawer').click(function(){
         $('.drawer').drawer('close');
        
+    })
+    
+    
+    $("#signUpForm").submit(function(event){
+        event.preventDefault(); 
+       
+        let name = $("#signUpName").val().trim();
+        let email =$("#signUpEmail").val().trim();
+        let password = $('#signUpPassword').val().trim();
+        
+       if(name=='' || email =='' || password==''){
+           $(".signup-mesage").html('<b>All fields requred</b>');
+       }
+        $.ajax({
+            url:'action.php',
+            method:'POST',
+            data:{enableSignUp:1,name:name,email:email,password:password},
+            success:function(data){
+                console.log(data);
+            },
+            error:function(err){
+                console.log(err); 
+            }
+        })
+        
     })
     
     

@@ -325,6 +325,39 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
          setcookie("shopping_cart",$item_data,time()+(86400*30));
       
       }
+    
+    
+    if(isset($_POST['enableSignUp']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])){
+        
+        
+         
+        $name = mysqli_real_escape_string($connection,validateData($_POST['name']));
+        $email = mysqli_real_escape_string($connection,validateData($_POST['email']));
+        $password= mysqli_real_escape_string($connection,validateData($_POST['email']));
+        
+        $validateQuery="select user_email from signupdetails where user_email='$email'";
+        $validateResult=mysqli_query($connection,$validateQuery); 
+        if(mysqli_num_rows($validateResult) >0){
+            echo 'Email already exists'; 
+        }
+        else {
+            
+             $sql="INSERT INTO signupdetails values('','$name','$email','$password')";
+        $result=mysqli_query($connection,$sql); 
+        if($result){
+            echo 'Sign Up successfully';
+        }
+        else 
+        {
+            echo 'Could not sign up...';
+        }
+            
+        }
+        
+       
+        
+    }
+    
 }// Post method 
 
 

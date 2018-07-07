@@ -51,10 +51,10 @@
                     </ul>
                     <div class="d-flex flex-row ml-auto">
                         <div class="p-2">
-                            <a href="javascript:void(0);"><i class="fa fa-user" aria-hidden="true"></i> Sign Up</a>
+                            <a href="#signUpModal" data-toggle="modal"><i class="fa fa-user" aria-hidden="true"></i> Sign Up</a>
                         </div>
                         <div class="p-2">
-                            <a href="javascript:void(0);"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</a>
+                            <a href="#signInModal" data-toggle="modal"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</a>
                         </div>
                         <div class="p-2">
                             <a href="javascript:void(0);" class="drawer-toggle"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-info shopping-cart"></span></a>
@@ -80,7 +80,7 @@
                     </h4>
                 </div>
                 <hr>
-                <div class="form-area">
+                <div class="show-data">
 <!--                  Contents will be rendered dynamically via jquery-->
                   
                 </div>
@@ -100,3 +100,67 @@
             </div>
         </div>
     </div>
+    
+   
+  
+<!-- Sign up  Modals-->
+
+
+<div class="modal fade" id="signUpModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title text text-info">SIGNUP</div>
+            </div>
+            <div class="modal-body">
+                <div class="form-area">
+                    <form method="POST" id="signUpForm">
+                        <div class="form-group">
+                           <input type="text" class="form-control" id="signUpName" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Enter your email" id="signUpEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="signUpPassword" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="SIGN UP" class="form-control btn btn-outline-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="signup-mesage text text-center text-danger ml-auto"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Login modal-->
+ <div class="modal fade" id="signInModal">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <div class="modal-title text text-center text-danger">SIGN IN</div>
+             </div>
+             <div class="modal-body">
+                 <div class="signin-area">
+                     <form method="POST" id="signInForm">
+                         <div class="form-group">
+                            <input type="email" id="siginEmail" class="form-control" placeholder="Enter your email">
+                         </div>
+                         <div class="form-group">
+                             <input type="password" id="signinPassword" class="form-control" placeholder="Enter your password">
+                         </div>
+                         <div class="form-group">
+                             <input type="submit" value="SIGN IN" class="fomr-control btn btn-outline-info">
+                         </div>
+                     </form>
+                 </div>
+             </div>
+             <div class="modal-footer"></div>
+         </div>
+     </div>
+ </div>
