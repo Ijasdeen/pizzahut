@@ -164,3 +164,21 @@
          </div>
      </div>
  </div>
+ 
+
+
+<!--Message modal-->
+<div class="modal fade" id="messageModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <div class="modal-body">
+                <h3>Successfully registered</h3>
+                <p>Please <a href="#signInModal" data-toggle='modal' class="text text-primary">SIGN IN</a> now</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss='modal'>OK</button>
+            </div>
+        </div>
+    </div>
+</div>

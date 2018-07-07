@@ -183,14 +183,29 @@ $(function(){
         let password = $('#signUpPassword').val().trim();
         
        if(name=='' || email =='' || password==''){
-           $(".signup-mesage").html('<b>All fields requred</b>');
+           $(".signup-mesage").html('<b>All fields required</b>');
        }
         $.ajax({
             url:'action.php',
             method:'POST',
             data:{enableSignUp:1,name:name,email:email,password:password},
             success:function(data){
-                console.log(data);
+                        $("#signUpForm")[0].reset();
+                    $("#signUpName").focus();
+               
+                if(data=='Exists'){
+                   $(".signup-mesage").html('Email already exists');
+                   return; 
+               }
+              if(data=='Success'){
+                  $("#signUpModal").modal('hide');
+                  $("#messageModal").modal('show');
+              }
+             if(data=='Wrong'){
+                 $(".signup-message").html('Sorry, Could not sign up....');
+                 return; 
+             }   
+                 
             },
             error:function(err){
                 console.log(err); 

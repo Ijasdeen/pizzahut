@@ -338,18 +338,18 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
         $validateQuery="select user_email from signupdetails where user_email='$email'";
         $validateResult=mysqli_query($connection,$validateQuery); 
         if(mysqli_num_rows($validateResult) >0){
-            echo 'Email already exists'; 
+            echo 'Exists'; 
         }
         else {
             
              $sql="INSERT INTO signupdetails values('','$name','$email','$password')";
         $result=mysqli_query($connection,$sql); 
         if($result){
-            echo 'Sign Up successfully';
+            echo 'Success';
         }
         else 
         {
-            echo 'Could not sign up...';
+            echo 'Wrong';
         }
             
         }
