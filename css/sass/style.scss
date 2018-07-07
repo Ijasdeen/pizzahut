@@ -12,6 +12,8 @@ body{
 
 a {
     color: black !important;
+      
+    text-decoration: none !important; 
 }
 
 ul {
@@ -35,6 +37,13 @@ header {
                 background-color: lightgray;
                 color: white;
                 transition: 100ms all ease-in-out;
+            }
+        }
+        
+        .navbar-brand{
+            img{
+                max-width: 50px !important;
+                max-height: 50px !important;
             }
         }
     }
@@ -334,7 +343,7 @@ header {
     #closeDrawer:hover{
        transition: 100ms all ease-in-out; 
           background-color: red; 
-        color: white; 
+        color: white !important; 
         
     } 
     

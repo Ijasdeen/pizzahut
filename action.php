@@ -128,11 +128,11 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
                 <?php  
               }
               else {
-               echo '<p class="text text-center">Cart is empty...</p>';
+               echo '<div class="alert alert-info text-center text-danger">Cart is empty</div>';
                }
           }     
          else {
-             echo '<p class="text text-center">No Item added to cart...</p>';
+             echo '<div class="alert alert-info text-center text-danger">No item added</div>';
          }
           
           
@@ -270,12 +270,15 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
          if(isset($_COOKIE['shopping_cart'])){
              $cookie_data=stripslashes($_COOKIE['shopping_cart']);
              $cart_data=json_decode($cookie_data,true);
+                 echo count($cart_data);
          }
-        
-        echo count($cart_data); 
+        else {
+            echo '0';
+        }
+   
     }
     
-    
+    //Editing quantity from textbox
   if(isset($_POST['quantityEditEnable']) && isset($_POST['itemId']) && isset($_POST['value']) && isset($_POST['category_name'])){
        
       $item_id=(int) mysqli_real_escape_string($connection,validateData($_POST['itemId']));

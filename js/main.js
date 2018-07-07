@@ -1,12 +1,12 @@
 $(function(){
-    
+                
+
     //Adding to cart when ".add_to_cart" button is clicked
    $(".add_to_cart").click(function(){
-               $('.drawer').drawer();
         $(this).text('Adding to cart...');
       let image = $(this).attr('image');
        let productId= parseInt($(this).attr('productId'));
-       let productPrice =parseFloat( $(this).attr('productPrice'));
+       let productPrice =parseFloat($(this).attr('productPrice'));
        let productName= String($(this).attr('productName'));
        let categoryName = String($(this).attr('category'));
        let quantity =parseInt($(this).attr('quantity'));
