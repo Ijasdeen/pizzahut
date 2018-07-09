@@ -4,6 +4,24 @@
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond');
 
 @import 'responsiveCss';
+
+.modal{
+    .close{
+        border: 2px solid red;  
+        color: darkred; 
+        transition: 200ms all ease-in-out; 
+        padding: 5px;
+        cursor: pointer; 
+    }
+    .close:hover{
+        color: red; 
+        background-color: white; 
+    }
+}
+
+
+
+
 body{
     font-family: 'EB Garamond', serif;
 }
@@ -340,6 +358,17 @@ header {
 #shoppingCartModal{
     .modal-header{
         background-color: rgb(178, 1, 13);
+        button{
+            color: red; 
+            cursor: pointer; 
+            padding: 5px;
+            background-color:azure !important;
+            transition: 100ms all ease-in-out; 
+        }
+        button:hover{
+            background-color:white; 
+            color:rgb(178, 1, 13);
+        }
     }
 }
 

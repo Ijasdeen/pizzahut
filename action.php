@@ -128,7 +128,7 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
                 <?php  
               }
               else {
-               echo '<div class="alert alert-info text-center text-warning">Cart is empty</div>';
+               echo '<div class="alert alert-warning text-center text-info">Cart is empty</div>';
                }
           }     
          else {
@@ -330,16 +330,15 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
     //Sign up form 
     if(isset($_POST['enableSignUp']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])){
         
-        
-         
         $name = mysqli_real_escape_string($connection,validateData($_POST['name']));
         $email = mysqli_real_escape_string($connection,validateData($_POST['email']));
-        $password= mysqli_real_escape_string($connection,validateData($_POST['email']));
-        
+        $password= mysqli_real_escape_string($connection,validateData(md5($_POST['password'])));
+ 
         $validateQuery="select user_email from signupdetails where user_email='$email'";
         $validateResult=mysqli_query($connection,$validateQuery); 
         if(mysqli_num_rows($validateResult) >0){
             echo 'Exists'; 
+            exit();
         }
         else {
             
@@ -359,8 +358,35 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
         
     }
     
+    
+    if(isset($_POST['enableSignIn']) && isset($_POST['email']) &&  isset($_POST['password'])){
+       
+        $email = mysqli_real_escape_string($connection,validateData($_POST['email']));
+        $password= mysqli_real_escape_string($connection,validateData(md5($_POST['password'])));
+        
+       $query="SELECT user_id,user_name FROM signupdetails where user_email='$email' && user_password='$password'"; 
+        
+        $result=mysqli_query($connection,$query); 
+        if(mysqli_num_rows($result) >0){
+            while($row=mysqli_fetch_array($result)){
+                $_SESSION['user_name'] =$row['user_name'];
+                $_SESSION['user_id'] = $row['user_id'];
+                
+                echo $_SESSION['user_name']; 
+                echo $_SESSION['user_id']; 
+               // echo 'Ok';
+            }
+        }
+      else {
+          echo 'Email or password incorrect';
+      }
+        
+    }
+   
+
+    
 }// Post method 
 
 
-
+mysqli_close($connection); 
 ?>

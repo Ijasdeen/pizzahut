@@ -208,9 +208,54 @@ $(function(){
             error:function(err){
                 console.log(err); 
             }
-        })
+        });
         
     })
+    
+    $("#signInForm").submit(function(e){
+       e.preventDefault();
+        
+        let email =$("#siginEmail").val().trim();
+        let password = $("#signinPassword").val().trim();
+        
+        if(email==='' || password===''){
+            $(".signInMessage").html('<b>All fields required</b>')
+            $("#signInForm")[0].reset(); 
+            $("#siginEmail").focus();
+            return; 
+        }
+        
+        $.ajax({
+            url:'action.php',
+            method:'POST',
+            data:{enableSignIn:1,email:email,password:password},
+            success:function(data){
+                if(data=='Ok'){
+                    //window.location.reload(); 
+                    $(".message-body").html('<span class="text text-success">signed in successfully</span>');
+                    $(".messageModalFooter").html(`
+<div class="d-flex flex-row">
+    <div class="p-2"><button class="btn btn-info">OK</button></div>
+    <div class="p-2"><button class="btn btn-danger">Cancel</button></div>
+</div>`);
+                     $("#messageModal").modal('show');
+                }
+                else {
+                    $("#signInMessage").html("<b>All fields required</b>");
+                    return; 
+                }
+                
+               $("#signInForm")[0].reset(); 
+
+            },
+            error:function(err){
+                console.log(err); 
+            }
+            
+        })
+        
+        
+    });
     
     
 }); //Document finishes

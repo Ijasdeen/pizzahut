@@ -56,7 +56,7 @@
                             <a href="#signInModal" data-toggle="modal"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</a>
                         </div>
                         <div class="p-2">
-                            <a href="#shoppingCartModal" data-toggle="modal" class="drawer-toggle"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-info shopping-cart"></span></a>
+                            <a href="#shoppingCartModal" data-toggle="modal"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-info shopping-cart"></span></a>
                         </div>
                     </div>
                 </div>
@@ -112,6 +112,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title text text-info">SIGNUP</div>
+                <button class="close" data-dismiss='modal'>&times;</button>
             </div>
             <div class="modal-body">
                 <div class="form-area">
@@ -144,16 +145,17 @@
      <div class="modal-dialog">
          <div class="modal-content">
              <div class="modal-header">
-                 <div class="modal-title text text-center text-danger">SIGN IN</div>
+                  <div class="modal-title text text-center text-danger modal-title">SIGN IN</div>
+                           <button class="close" data-dismiss='modal'>&times;</button>
              </div>
              <div class="modal-body">
                  <div class="signin-area">
                      <form method="POST" id="signInForm">
                          <div class="form-group">
-                            <input type="email" id="siginEmail" class="form-control" placeholder="Enter your email">
+                            <input type="email" id="siginEmail" class="form-control" placeholder="Enter your email" required>
                          </div>
                          <div class="form-group">
-                             <input type="password" id="signinPassword" class="form-control" placeholder="Enter your password">
+                             <input type="password" id="signinPassword" class="form-control" placeholder="Enter your password" required>
                          </div>
                          <div class="form-group">
                              <input type="submit" value="SIGN IN" class="form-control btn btn-outline-info">
@@ -161,7 +163,9 @@
                      </form>
                  </div>
              </div>
-             <div class="modal-footer"></div>
+             <div class="modal-footer">
+                 <div class="signInMessage text text-danger"></div>
+             </div>
          </div>
      </div>
  </div>
@@ -172,12 +176,14 @@
 <div class="modal fade" id="messageModal">
     <div class="modal-dialog">
         <div class="modal-content">
-            
-            <div class="modal-body">
+            <div class="modal-header">
+                <button class="close" data-dismiss='modal'>&times;</button>
+            </div>
+            <div class="modal-body message-body">
                 <h3 class="text text-success">Successfully registered</h3>
                 <p>Please <a  data-dismiss="modal" href="#signInModal" data-toggle='modal' class="text text-primary">SIGN IN</a> now</p>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer messageModalFooter">
                 <button class="btn btn-primary" data-dismiss='modal'>OK</button>
             </div>
         </div>
@@ -185,11 +191,13 @@
 </div>
 
 
+
 <div class="modal fade" id="shoppingCartModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="text text-white">Products</h3>
+              <h3 class="modal-title text text-white font-weight-bold">Shopping cart details</h3>
+               <button class="close font-weigt-bold" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="show-data"></div>
