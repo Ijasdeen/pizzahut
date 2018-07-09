@@ -1,4 +1,5 @@
-<?php require_once('Connection/connection.php')?> <!--Connecting database-->
+<?php require_once('Connection/connection.php');?> <!--Connecting database-->
+<?php session_start();?>  <!--Starting session-->
 <!doctype html>
 <html lang="en">
 
@@ -49,12 +50,37 @@
                         </li>
                     </ul>
                     <div class="d-flex flex-row ml-auto">
-                        <div class="p-2">
+                       <?php
+                        if(isset($_SESSION['user_name'])){
+                           ?>
+                           <div class="p-2">
+                               <li class="dropdown">
+                                   <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="userDropDown" role="button" data-toggle='dropdown'><i class="fa fa-user" aria-hidden="true"></i></a>
+                                   
+                                   <div class="dropdown-menu" aria-labelledby="userDropDown">
+                                       <a href="javascript:void(0);" class="dropdown-item">CHANGE PASSWORD</a>
+                                       <a href="javascript:void(0);" class="dropdown-item">CHECK OUT</a>
+                                       
+                                       <a href="javascript:void(0);" class="dropdown-item">SIGN OUT</a>
+                                       
+                                       
+                                   </div>
+                               </li>
+                           </div>
+                           <?php
+                        }
+                        else {
+                            ?>
+                              <div class="p-2">
                             <a href="#signUpModal" data-toggle="modal"><i class="fa fa-user" aria-hidden="true"></i> Sign Up</a>
                         </div>
                         <div class="p-2">
                             <a href="#signInModal" data-toggle="modal"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</a>
                         </div>
+                            <?php
+                        }
+                        ?>
+                      
                         <div class="p-2">
                             <a href="#shoppingCartModal" data-toggle="modal"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-info shopping-cart"></span></a>
                         </div>
@@ -64,30 +90,7 @@
         </div>
     </header>
     
-    <!--        Drawer section-->
-<!--
-        <div class="drawer-section" id="searchArea">
-            <nav class="drawer-nav">
-                <div class="js-drower-close">
-                    <a href="javascript:void(0);" class="icon-fallback-text" id="closeDrawer">
-            <i class="fa fa-times fa-lg" aria-hidden="true"></i>
-           </a>
-
-                </div>
-                <div class="text-center drawer-heading">
-                    <h4 class="search-header">
-                      Product Details 
-                    </h4>
-                </div>
-                <hr>
-                <div class="show-data">
-                  Contents will be rendered dynamically via jquery
-                  
-                </div>
-            </nav>
-        </div>
--->
-    
+ 
     
 
     <!--    Sub-header-->
@@ -191,7 +194,7 @@
 </div>
 
 
-
+<!--Shopping cart modal-->
 <div class="modal fade" id="shoppingCartModal">
     <div class="modal-dialog">
         <div class="modal-content">

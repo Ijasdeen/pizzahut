@@ -217,7 +217,7 @@ $(function(){
         
         let email =$("#siginEmail").val().trim();
         let password = $("#signinPassword").val().trim();
-        
+        let checkModal=false; 
         if(email==='' || password===''){
             $(".signInMessage").html('<b>All fields required</b>')
             $("#signInForm")[0].reset(); 
@@ -231,17 +231,28 @@ $(function(){
             data:{enableSignIn:1,email:email,password:password},
             success:function(data){
                 if(data=='Ok'){
-                    //window.location.reload(); 
-                    $(".message-body").html('<span class="text text-success">signed in successfully</span>');
+                    $(".modal").modal('hide');
+                    $(".message-body").html('<h3 class="text text-success">signed in successfully</h3>');
                     $(".messageModalFooter").html(`
 <div class="d-flex flex-row">
-    <div class="p-2"><button class="btn btn-info">OK</button></div>
-    <div class="p-2"><button class="btn btn-danger">Cancel</button></div>
+    <div class="p-2"><button class="btn btn-info" data-dismiss="modal">OK</button></div>
+    <div class="p-2"><button class="btn btn-danger" data-dismiss="modal">Cancel</button></div>
 </div>`);
-                     $("#messageModal").modal('show');
+                                   $("#messageModal").modal('show');
+                          checkModal=($("#messageModal").data('bs.modal') || {isShown: false})._isShown;
+                        
+                    if(checkModal){
+                        setInterval(function(){
+                            window.location.reload(); 
+                        },3000)
+                    }
+                    
+                
+
+
                 }
                 else {
-                    $("#signInMessage").html("<b>All fields required</b>");
+                    $(".signInMessage").html('<b>'+data+'</b>');
                     return; 
                 }
                 
@@ -257,5 +268,7 @@ $(function(){
         
     });
     
+ 
+  
     
 }); //Document finishes

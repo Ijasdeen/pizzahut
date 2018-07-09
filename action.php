@@ -372,9 +372,8 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
                 $_SESSION['user_name'] =$row['user_name'];
                 $_SESSION['user_id'] = $row['user_id'];
                 
-                echo $_SESSION['user_name']; 
-                echo $_SESSION['user_id']; 
-               // echo 'Ok';
+               
+                echo 'Ok';
             }
         }
       else {
