@@ -12,11 +12,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/css/style.css">
     <link rel="stylesheet" href="css/caraousalStyle.css">
-<link rel="stylesheet" href="css/drawer.css">
     <title>Pizza hut</title>
 </head>
 
-<body class="drawer drawer--right">
+<body>
     <header>
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -190,7 +189,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="text text-info">Products</h3>
+                <h3 class="text text-white">Products</h3>
             </div>
             <div class="modal-body">
                 <div class="show-data"></div>

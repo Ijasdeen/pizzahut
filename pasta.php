@@ -18,15 +18,13 @@
     <p class="card-text"><?php echo $row['des']?></p>
     <p class="card-text">Rs. <?php echo number_format($row['price'])?> (LKR)</p>
     <a href="javascript:void(0)" 
-            class="btn btn-outline-info add_to_cart drawer-toggle"
+            class="btn btn-outline-info add_to_cart"
             productId="<?php echo $row[0];?>"
             productPrice="<?php echo $row['price']?>"
             productName ="<?php echo $row['name']?>"    
             category='Pasta'
              image='Images/pasta/<?php echo $row['image']?>'
-              quantity = '1'    
-              
-                >Add to cart</a>
+              quantity = '1'>Add to cart</a>
   </div>
 </div>
                        </div>

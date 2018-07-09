@@ -128,7 +128,7 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
                 <?php  
               }
               else {
-               echo '<div class="alert alert-info text-center text-danger">Cart is empty</div>';
+               echo '<div class="alert alert-info text-center text-warning">Cart is empty</div>';
                }
           }     
          else {
@@ -327,6 +327,7 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
       }
     
     
+    //Sign up form 
     if(isset($_POST['enableSignUp']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])){
         
         

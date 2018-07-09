@@ -290,10 +290,10 @@ header {
     }
 
     .img-division {
-        padding-left: 50px;
-        margin-left: 5px;
+       
         img {
             width: 100%;
+            height: auto; 
         }
     }
 
@@ -331,30 +331,15 @@ header {
 
 }
 
-.js-drower-close{
-    margin-top: 30px;
-    margin-left: 20px;
-    #closeDrawer{
-            border-radius: 5px 0px 5px 0px; 
-        border: 2px solid red; 
-   transition: 100ms all ease-in-out;
-      padding: 5px;
-    }
-    
-    #closeDrawer:hover{
-       transition: 100ms all ease-in-out; 
-          background-color: red; 
-        color: white !important; 
-        
-    } 
-    
-}
+ 
 
 #subTotalArea {
     padding-bottom: 30px;
 }
 
-.drawer-nav{
-    overflow: scroll !important;
- 
+#shoppingCartModal{
+    .modal-header{
+        background-color: rgb(178, 1, 13);
+    }
 }
+
