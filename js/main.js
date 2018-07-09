@@ -15,6 +15,7 @@ $(function(){
            method:'POST',
            data:{enableAddToCart:1,image:image,id:productId,productPrice:productPrice,productName:productName,categoryName:categoryName,quantity:quantity},
            success:function(data){
+               $("#shoppingCartModal").modal('show');
                console.log(data);
                $(".add_to_cart").text('Add to cart');
                 view();
@@ -169,10 +170,7 @@ $(function(){
     });
     
     
-     $('#closeDrawer').click(function(){
-        $('.drawer').drawer('close');
-       
-    })
+ 
     
     
     $("#signUpForm").submit(function(event){

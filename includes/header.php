@@ -57,7 +57,7 @@
                             <a href="#signInModal" data-toggle="modal"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</a>
                         </div>
                         <div class="p-2">
-                            <a href="javascript:void(0);" class="drawer-toggle"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-info shopping-cart"></span></a>
+                            <a href="#shoppingCartModal" data-toggle="modal" class="drawer-toggle"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-info shopping-cart"></span></a>
                         </div>
                     </div>
                 </div>
@@ -66,6 +66,7 @@
     </header>
     
     <!--        Drawer section-->
+<!--
         <div class="drawer-section" id="searchArea">
             <nav class="drawer-nav">
                 <div class="js-drower-close">
@@ -81,11 +82,12 @@
                 </div>
                 <hr>
                 <div class="show-data">
-<!--                  Contents will be rendered dynamically via jquery-->
+                  Contents will be rendered dynamically via jquery
                   
                 </div>
             </nav>
         </div>
+-->
     
     
 
@@ -155,7 +157,7 @@
                              <input type="password" id="signinPassword" class="form-control" placeholder="Enter your password">
                          </div>
                          <div class="form-group">
-                             <input type="submit" value="SIGN IN" class="fomr-control btn btn-outline-info">
+                             <input type="submit" value="SIGN IN" class="form-control btn btn-outline-info">
                          </div>
                      </form>
                  </div>
@@ -173,8 +175,8 @@
         <div class="modal-content">
             
             <div class="modal-body">
-                <h3>Successfully registered</h3>
-                <p>Please <a href="#signInModal" data-toggle='modal' class="text text-primary">SIGN IN</a> now</p>
+                <h3 class="text text-success">Successfully registered</h3>
+                <p>Please <a  data-dismiss="modal" href="#signInModal" data-toggle='modal' class="text text-primary">SIGN IN</a> now</p>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" data-dismiss='modal'>OK</button>
@@ -182,3 +184,22 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="shoppingCartModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text text-info">Products</h3>
+            </div>
+            <div class="modal-body">
+                <div class="show-data"></div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+
+
+
