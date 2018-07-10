@@ -268,6 +268,65 @@ $(function(){
         
     });
     
+    
+    $("#changePasswordForm").submit(function(event){
+        event.preventDefault(); 
+        
+        let oldPassword= $("#oldPassword").val().trim();
+        let newPassword = $("#newPassword").val().trim();
+        let confirmPassword= $("#confirmPassword").val().trim();
+        
+        if(oldPassword==='' || newPassword==='' || confirmPassword===''){
+            $(".changePasswordMessage").html("<b>All field required</b>");
+            return; 
+        }
+        else if(newPassword!==confirmPassword){
+          $(".changePasswordMessage").html("Password mismatch");
+            $("#newPassword").focus(); 
+            return; 
+        }
+        else {
+            $.ajax({
+                url:'action.php',
+                method:'POST',
+                data:{enableChangePassword:1,oldPassword:oldPassword,newPassword:newPassword,confirmPassword:confirmPassword},
+                success:function(data){
+                    if(data=='Yes'){
+                         $(".modal").modal('hide');
+                    $(".message-body").html('<h3 class="text text-success">Password changed successfully</h3>');
+                    $(".messageModalFooter").html(`
+<div class="d-flex flex-row">
+    <div class="p-2"><button class="btn btn-info" data-dismiss="modal">OK</button></div>
+    <div class="p-2"><button class="btn btn-danger" data-dismiss="modal">Cancel</button></div>
+</div>`);
+                                   $("#messageModal").modal('show');
+                          checkModal=($("#messageModal").data('bs.modal') || {isShown: false})._isShown;
+                        
+                    if(checkModal){
+                        setInterval(function(){
+                            window.location.reload(); 
+                        },3000)
+                    }
+                        
+                    }
+                    else if(data=='OldMismatch'){
+                        $(".changePasswordMessage").html('<b>Old password mismatch</b>');
+                        $("#oldPassword").focus();
+                        return; 
+                    }
+                    else {
+                        $(".changePasswordMessage").html(data); 
+                    }
+                },
+                error:function(err){
+                    console.log(err); 
+                }
+            })
+        }
+    });
+    
+    
+    
  
   
     

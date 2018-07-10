@@ -46,32 +46,29 @@
                       </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="contact.php">Contact</a>
                         </li>
                     </ul>
-                    <div class="d-flex flex-row ml-auto">
-                       <?php
+                    <div class="d-flex flex-row ml-auto" id="signUpDivision">
+                     <?php
                         if(isset($_SESSION['user_name'])){
-                           ?>
-                           <div class="p-2">
-                               <li class="dropdown">
-                                   <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="userDropDown" role="button" data-toggle='dropdown'><i class="fa fa-user" aria-hidden="true"></i></a>
-                                   
-                                   <div class="dropdown-menu" aria-labelledby="userDropDown">
-                                       <a href="javascript:void(0);" class="dropdown-item">CHANGE PASSWORD</a>
-                                       <a href="javascript:void(0);" class="dropdown-item">CHECK OUT</a>
-                                       
-                                       <a href="javascript:void(0);" class="dropdown-item">SIGN OUT</a>
-                                       
-                                       
-                                   </div>
-                               </li>
-                           </div>
-                           <?php
+                            ?>
+                            <div class="p-2" id="dropdownDivision">
+                                <div class="dropdown">
+                                    <a href="javascript:void();" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle" aria-hidden="true"></i> <?php echo $_SESSION['user_name']?></a>
+                                    
+                                    <div class="dropdown-menu">
+                                        <a href="#changePasswordModal" class="dropdown-item" data-toggle="modal">CHANGE PASSWORD</a>
+                                        <a href="checkout.php" class="dropdown-item">CHECK OUT</a>
+                                        <a href="logout.php" class="dropdown-item">SIGN OUT</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
                         }
                         else {
                             ?>
-                              <div class="p-2">
+                             <div class="p-2">
                             <a href="#signUpModal" data-toggle="modal"><i class="fa fa-user" aria-hidden="true"></i> Sign Up</a>
                         </div>
                         <div class="p-2">
@@ -80,6 +77,7 @@
                             <?php
                         }
                         ?>
+                     
                       
                         <div class="p-2">
                             <a href="#shoppingCartModal" data-toggle="modal"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-info shopping-cart"></span></a>
@@ -200,12 +198,44 @@
         <div class="modal-content">
             <div class="modal-header">
               <h3 class="modal-title text text-white font-weight-bold">Shopping cart details</h3>
-               <button class="close font-weigt-bold" data-dismiss="modal">&times;</button>
+               <button class="close font-weight-bold" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="show-data"></div>
             </div>
             <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+<!--Change password-->
+
+<div class="modal fade" id="changePasswordModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+              <h3 class="modal-title text text-muted">Change password</h3>
+              <button class="close font-weight-bold" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+               <form method="POST" id="changePasswordForm">
+                   <div class="form-group">
+                       <input type="password" name="oldPassword" id="oldPassword" class="form-control old-password" placeholder="Old password" required>
+                   </div>
+                   <div class="form-group">
+                       <input type="password" name="newPassword" id="newPassword" class="form-control new-password" placeholder="New password" required>
+                   </div>
+                   <div class="form-group">
+                       <input type="password" name="confirmPassword" id="confirmPassword" class="form-control confirm-password" placeholder="Confirm Password" required>
+                   </div>
+                   <div class="form-group">
+                       <input type="submit" value="Change password" class="form-control btn btn-outline-success">
+                   </div>
+               </form>
+          </div>
+          <div class="modal-footer">
+              <div class="changePasswordMessage text text-danger"></div>
+          </div>
         </div>
     </div>
 </div>

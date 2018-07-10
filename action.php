@@ -381,6 +381,53 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
       }
         
     }
+    
+    
+    //Change password 
+     if(isset($_POST['enableChangePassword']) && isset($_POST['oldPassword']) && isset($_POST['newPassword']) && isset($_POST['confirmPassword']) && isset($_SESSION['user_id'])){
+        
+         $userId=$_SESSION['user_id'];
+         $oldPassword = mysqli_real_escape_string($connection,validateData(md5($_POST['oldPassword'])));
+         $newPassword = mysqli_real_escape_string($connection,validateData(md5($_POST['newPassword'])));
+  $confirmPassword = mysqli_real_escape_string($connection,validateData(md5($_POST['confirmPassword'])));
+      
+          if($oldPassword==''){
+              echo 'All field required';
+              exit();
+              
+          } 
+         else {
+             
+             $checkOldPasswordQuery="select user_password from signupdetails where user_password='$oldPassword' AND user_id='$userId'"; 
+             $checkResult=mysqli_query($connection,$checkOldPasswordQuery); 
+             
+             if(mysqli_num_rows($checkResult) >0){
+                  if($newPassword!=$confirmPassword){
+                 echo 'Password mismatch';
+                      exit();
+                }
+             else {
+                 $query="update signupdetails set user_password='$confirmPassword' where user_id='$userId'"; 
+                 $result=mysqli_query($connection,$query); 
+                 if($result){
+                     echo 'Yes'; 
+                 }
+                 else {
+                     mysqli_error($connection); 
+                 }
+             }
+             }
+             else {
+                 echo 'OldMismatch'; 
+                 exit();
+             }
+                 
+                 
+            
+         }
+         
+     }
+ 
    
 
     
