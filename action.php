@@ -439,13 +439,46 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
         $feedBackMessage= mysqli_real_escape_string($connection,$_POST['feedBackMessage']);
         $feedBackwebsite=mysqli_real_escape_string($connection,$_POST['website']);
     
-      
-        $query=""
+      if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+          echo 'InvalidEmail';
+          exit(); 
+      }
+        else if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$feedBackwebsite)){
+            echo 'InvalidWebsite'; 
+            exit(); 
+        }
+        else if(!preg_match("/^[a-zA-Z ]*$/",$firstName)){
+            echo 'InvalidFirstName'; 
+            exit(); 
+        }
+        else if(!preg_match("/^[a-zA-Z ]*$/",$lastName)){
+            echo 'InvaidLastName'; 
+            exit(); 
+        }
+        else {
+             $query="INSERT INTO feedbacks (first_name,last_name,email,website,Message) values('$firstName','$lastName','$email','$feedBackwebsite','$feedBackMessage')";
+      $result=mysqli_query($connection,$query); 
+        if($result){
+            echo 'yes'; 
+        }
+        else 
+        {
+            echo mysqli_error($connection); 
+        }
+            
+        }
+        
+        
+     
+    
     }
     
+    
+    
+    } //POST method    
 
     
-}// Post method 
+ 
 
 
 mysqli_close($connection); 

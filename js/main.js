@@ -369,9 +369,29 @@ $(function(){
                     if(data=="yes"){
                       window.location.reload(); 
                     }
-                    else {
-                        $(".generalMessage").html(data); 
+                    else if(data=='InvalidFirstName'){
+                        $("#firstNameMessage").html('Only letters and whitespace allowed'); 
+                        $("#feedBackfirstName").focus(); 
+                        return; 
                     }
+                    else if(data=='InvaidLastName'){
+                        $("#lastNameMessage").html('Only letters and whitespace allowed'); 
+                        $("#feedBacksecondName").focus(); 
+                        return; 
+                    }
+                    else if(data=='InvalidEmail'){
+                        $("#emailMessage").html('Invalid Email.');
+                        $("#emailAddress").focus(); 
+                        return; 
+                    }
+                    else if(data=='InvalidWebsite'){
+                        $("#websiteMessage").html('Invalid website Address'); 
+                        $("#feedBackwebsite").focus(); 
+                        return; 
+                    }
+                   else{
+                      console.log(data); 
+                  }
                 },
                 error:function(err){
                     console.log(err); 

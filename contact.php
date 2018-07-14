@@ -56,20 +56,24 @@
                                 <div class="col-md-6">
                                     <label for="Full Name">First Name<span class="tex text-danger font-weight-bold">*</span></label>
                                     <input type="text" class="form-control" placeholder="E.g : David" id="feedBackfirstName" required maxlength="200">
+                                   <span class="text text-danger" id="firstNameMessage"></span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="Second Name">Surname <span class="tex text-danger font-weight-bold">*</span></label>
                                     <input type="text" class="form-control" placeholder="E.g : Warner" id="feedBacksecondName" required maxlength="200">
+                                    <span class="text text-danger" id="lastNameMessage"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="Email">Email <span class="text text-danger font-weight-bold">*</span></label>
                             <input type="email" name="emailAddress" id="emailAddress" class="form-control" required maxlength="200" placeholder="E.g :myEmail@gmail.com">
+                            <span class="text text-danger" id="emailMessage"></span>
                         </div>
                         <div class="form-group">
                             <label for="Website">Website</label>
                             <input type="url" class="form-control" id="feedBackwebsite" placeholder="E.g:http://WWW.yourwebsite.com (optional)">
+                            <span class="text text-danger" id="websiteMessage"></span>
                         </div>
                         <div class="form-group">
                             <label for="Message">Message <span class="tex text-danger font-weight-bold">*</span></label>
@@ -82,7 +86,7 @@
                         </div>
                     </form>
                 </div>
-
+                <div class="feedbackSuccessMessage"></div>
             </div>
         </div>
     </div>
