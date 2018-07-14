@@ -2,39 +2,44 @@
 @import url('https://fonts.googleapis.com/css?family=Lora');
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text');
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond');
-
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
 @import 'responsiveCss';
 
-.modal{
-    .close{
-        border: 2px solid red;  
-        color: darkred; 
-        transition: 200ms all ease-in-out; 
+$dark-overlay:rgba(0,
+0,
+0,
+0.7);
+.modal {
+    .close {
+        border: 2px solid red;
+        color: darkred;
+        transition: 200ms all ease-in-out;
         padding: 5px;
-        cursor: pointer; 
+        cursor: pointer;
     }
-    .close:hover{
-        color: red; 
-        background-color: white; 
+    .close:hover {
+        color: red;
+        background-color: white;
     }
 }
 
-li{
-    list-style: none; 
+li {
+    list-style: none;
 }
 
 
-body{
+body {
     font-family: 'EB Garamond', serif;
 }
+
 .container-fluid {
     padding: 0px 0px 0px 0px !important;
 }
 
 a {
     color: black !important;
-      
-    text-decoration: none !important; 
+
+    text-decoration: none !important;
 }
 
 ul {
@@ -60,9 +65,9 @@ header {
                 transition: 100ms all ease-in-out;
             }
         }
-        
-        .navbar-brand{
-            img{
+
+        .navbar-brand {
+            img {
                 max-width: 50px !important;
                 max-height: 50px !important;
             }
@@ -107,7 +112,7 @@ header {
     margin-top: 50px;
     border-top: 2px solid red;
     border-bottom: 2px solid red;
-    
+
 }
 
 .parallax-section {
@@ -310,10 +315,10 @@ header {
     }
 
     .img-division {
-       
+
         img {
             width: 100%;
-            height: auto; 
+            height: auto;
         }
     }
 
@@ -351,34 +356,81 @@ header {
 
 }
 
- 
+
 
 #subTotalArea {
     padding-bottom: 30px;
 }
 
-#shoppingCartModal{
-    .modal-header{
+#shoppingCartModal {
+    .modal-header {
         background-color: rgb(178, 1, 13);
-        button{
-            color: red; 
-            cursor: pointer; 
+        button {
+            color: red;
+            cursor: pointer;
             padding: 5px;
-            background-color:azure !important;
-            transition: 100ms all ease-in-out; 
+            background-color: azure !important;
+            transition: 100ms all ease-in-out;
         }
-        button:hover{
-            background-color:white; 
-            color:rgb(178, 1, 13);
+        button:hover {
+            background-color: white;
+            color: rgb(178, 1, 13);
         }
     }
 }
 
-#signUpDivision{
+#signUpDivision {
     margin-right: 40px;
-    
-    #dropdownDivision{
+
+    #dropdownDivision {
         margin-right: 40px;
     }
 }
 
+.contactUs-herosection {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+
+    .hero-section {
+        background: url('../../Images/eat-whatmakesyouhappy.jpg') no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        height: 500px;
+
+        .dark-overlay {
+            background-color: $dark-overlay;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 500px;
+
+
+        }
+    }
+
+    .hero-sectionContent {
+        margin-top: 100px;
+
+        h3 {
+            color: gold;
+            font-weight: 300;
+            vertical-align: middle;
+            font-size: 5vw;
+            border-bottom: 2px solid white;
+            border-top: 2px solid white;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-family: 'Kaushan Script', cursive;
+        }
+    }
+
+  
+
+}
+
+
+.map-area{
+    
+}
