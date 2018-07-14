@@ -46,7 +46,7 @@
          </form>
      </div>
      <div class="col-md-6">
-          <div class="product-wrapper bg-secondary text-white text-center align-middle">
+          <div class="product-wrapper bg-secondary text-white">
               <?php
                if(isset($_COOKIE['shopping_cart'])){
                    $cookie_data=stripslashes($_COOKIE['shopping_cart']);
