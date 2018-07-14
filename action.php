@@ -482,14 +482,19 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
         $city=mysqli_real_escape_string($connection,validateData($_POST['city']));
         
       
-        if(preg_match("/^[a-zA-Z ]*$/",$fullName)){
+        if(!preg_match("/^[a-zA-Z ]*$/",$fullName)){
             echo 'InvalidName';
             exit();
         }
-        else if(strlen($mobileNumber)!=10){
-            echo '10Digits';
-        }
         
+        $checkOutQuery="INSERT INTO checkoutcustomerdetails (full_name,companyName,mobileNumber,address,apartment,city) VALUES('$fullName','$companyName','$mobileNumber','$address','$apartment','$city')";
+        if(mysqli_query($connection,$checkOutQuery)){
+            echo 'yes'; 
+        }
+        else {
+          echo mysqli_error($connection); 
+        }
+       
          
         
         

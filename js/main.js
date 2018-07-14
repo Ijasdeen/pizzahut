@@ -492,18 +492,17 @@ $(function () {
                     apartment: apartment,
                     city: city
                 },
-                success: function (data) {
-                    if (data == 'InvalidName') {
+                success:function(data) {
+                    if (data=='InvalidName') {
                         $(".fullNameMessage").html('<b>Only letters and whitespace allowed</b>');
                         $("#fullName").focus();
                         return;
-                    } else if (data == '10Digits') {
-                        $(".mobileNumberMessage").html('<b>Mobile number should be 10 digits</b>');
-                        $("#mobileNumber").focus();
-                        return;
                     }
-                    console.log(data);
-                },
+                    if(data=='yes'){
+                        window.location.reload();
+                    }
+                    
+                 },
                 error: function (err) {
                     console.log(err);
                 }
