@@ -46,11 +46,30 @@
          </form>
      </div>
      <div class="col-md-6">
-         <?php
-         if(isset($_COOKIE['shopping_cart'])){
-            
-         }
-         ?>
+          <div class="product-wrapper bg-secondary text-white text-center align-middle">
+              <?php
+               if(isset($_COOKIE['shopping_cart'])){
+                   $cookie_data=stripslashes($_COOKIE['shopping_cart']);
+                   $cart_data=json_decode($cookie_data,true); 
+                   
+                   foreach($cart_data as $keys =>$values){
+                       ?>
+                       <div class="d-flex flex-row">
+                           <div class="p-2">
+                               <img src="<?php echo $values['image']?>" alt="" class="img-fluid">
+                           </div>
+                           <div class="p-2">
+                               <?php echo $values['item_name']?>
+                           </div>
+                           <div class="p-2">
+                               <?php echo number_format($values['price'],2)?>
+                           </div>
+                       </div>
+                       <?php
+                   }
+               }
+              ?>
+          </div>
      </div>
     </div>
 </div>

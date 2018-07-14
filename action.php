@@ -68,7 +68,7 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
 
  if(isset($_POST['enableCookies'])){
           if(isset($_COOKIE['shopping_cart'])){
-           $total=0;
+              $total=0;
               $count=0; 
               $cookie_data=stripslashes($_COOKIE['shopping_cart']);
              $cart_data=json_decode($cookie_data,true);
