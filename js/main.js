@@ -367,7 +367,7 @@ $(function(){
                 data:{enableFeedBackForm:1,firstName:firstName,lastName:lastName,email:email,feedBackMessage:feedBackMessage,website:website},
                 success:function(data){
                     if(data=="yes"){
-                      window.location.reload(); 
+                       $(".feedback-form-wrapper").html(`<div class="feedbackSuccessMessage"><h3 class="tex text-success text-center align-middle">Successfully Send</h3></div>`);
                     }
                     else if(data=='InvalidFirstName'){
                         $("#firstNameMessage").html('Only letters and whitespace allowed'); 

@@ -2,7 +2,7 @@
 <main>
     <section class="pizza-hut">
         <div class="container">
-          <div class="row">
+           <div class="row">
                   <?php
             $query="select * from pizza limit 0,3"; 
             $result=mysqli_query($connection,$query); 

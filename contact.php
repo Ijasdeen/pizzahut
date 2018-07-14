@@ -32,7 +32,7 @@
             <div class="col-md-4">
                 <div class="text-center">
                     <h3>TENSEE PIZZA HUT</h3>
-                    <div id="sectionTitle"></div>
+                    <div class="sectionTitle"></div>
                 </div>
                 <ul>
          <li><b>Address :</b> <address>No.26-28, New Road,Batticaloa.</address></li>
@@ -48,9 +48,10 @@
                 <div class="contact-form">
                     <div class="text-center">
                         <h3>CONTACT WITH US</h3>
-                        <div id="sectionTitle"></div>
+                        <div class="sectionTitle"></div>
                     </div>
-                    <form method="POST" id="feedBackForm">
+                <div class="feedback-form-wrapper">
+                        <form method="POST" id="feedBackForm">
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-6">
@@ -86,7 +87,8 @@
                         </div>
                     </form>
                 </div>
-                <div class="feedbackSuccessMessage"></div>
+                </div>
+                
             </div>
         </div>
     </div>
