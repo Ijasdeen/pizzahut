@@ -371,8 +371,6 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
             while($row=mysqli_fetch_array($result)){
                 $_SESSION['user_name'] =$row['user_name'];
                 $_SESSION['user_id'] = $row['user_id'];
-                
-               
                 echo 'Ok';
             }
         }
@@ -471,6 +469,30 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
         
      
     
+    }
+    
+    
+    if(isset($_POST['enableCheckOut']) && isset($_POST['fullName']) && isset($_POST['companyName']) && isset($_POST['mobileNumber']) && isset($_POST['address']) && isset($_POST['apartment']) && isset($_POST['city'])){
+        
+        $fullName=mysqli_real_escape_string($connection,validateData($_POST['fullName'])); 
+        $companyName=mysqli_real_escape_string($connection,validateData($_POST['companyName']));
+        $mobileNumber=mysqli_real_escape_string($connection,validateData($_POST['mobileNumber']));
+        $address=mysqli_real_escape_string($connection,validateData($_POST['address']));
+        $apartment=mysqli_real_escape_string($connection,validateData($_POST['apartment']));
+        $city=mysqli_real_escape_string($connection,validateData($_POST['city']));
+        
+      
+        if(preg_match("/^[a-zA-Z ]*$/",$fullName)){
+            echo 'InvalidName';
+            exit();
+        }
+        else if(strlen($mobileNumber)!=10){
+            echo '10Digits';
+        }
+        
+         
+        
+        
     }
     
     
