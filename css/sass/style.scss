@@ -27,7 +27,16 @@ li {
     list-style: none;
 }
 
+    #sectionTitle{
+        background-color: #23def7;
+height: .5rem;
+margin: 0 auto 5rem auto;
+width: 9.2rem;
+    }
 
+textarea{
+    resize: none !important;
+}
 body {
     font-family: 'EB Garamond', serif;
 }
@@ -430,7 +439,10 @@ header {
 
 }
 
-
-.map-area{
+#contactForm{
+    margin-top: 40px;
+    
     
 }
+
+ 

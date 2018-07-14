@@ -325,8 +325,64 @@ $(function(){
         }
     });
     
+ 
+    //Counting texts in textarea of contact.php
+    
+    $("#feedBackMessage").keyup(function(event){
+        $("#feedBackMessage").attr('maxlength','1000');
+        let textlength=event.target.value.length; 
+        if(textlength===1000){
+            $(".messageCount").removeClass('text-muted');
+            $(".messageCount").addClass('text-danger');
+        }
+        else {
+            $(".messageCount").removeClass('text-danger');
+            $(".messageCount").addClass('text-muted');
+        }
+        
+        $("#countLength").html(textlength); 
+        
+    })
+        
     
     
+    //FEED BACK FORM
+    $("#feedBackForm").submit(function(event){
+        event.preventDefault(); 
+        
+        let firstName = $("#feedBackfirstName").val().trim();
+       let lastName = $("#feedBacksecondName").val().trim();
+        let email=$("#emailAddress").val().trim();
+        let website = $("#feedBackwebsite").val().trim(); 
+        let feedBackMessage = $("#feedBackMessage").val().trim();
+        
+      if(firstName==='' || lastName==='' || email==='' || feedBackMessage===''){
+          $(".generalMessage").html('All fields required'); 
+          return; 
+      }
+        else {
+            $.ajax({
+                url:'action.php',
+                method:'POST',
+                data:{enableFeedBackForm:1,firstName:firstName,lastName:lastName,email:email,feedBackMessage:feedBackMessage,website:website},
+                success:function(data){
+                    if(data=="yes"){
+                      window.location.reload(); 
+                    }
+                    else {
+                        $(".generalMessage").html(data); 
+                    }
+                },
+                error:function(err){
+                    console.log(err); 
+                }
+            })
+        }
+        
+    });
+    
+    
+ 
     
     
     

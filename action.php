@@ -429,6 +429,20 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
      }
  
    
+    //Feed back form submitting 
+    
+    if(isset($_POST['enableFeedBackForm']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['email']) && isset($_POST['feedBackMessage'])){
+         
+        $firstName = mysqli_real_escape_string($connection,validateData($_POST['firstName'])); 
+        $lastName = mysqli_real_escape_string($connection,validateData($_POST['lastName'])); 
+        $email = mysqli_real_escape_string($connection,validateData($_POST['email']));
+        $feedBackMessage= mysqli_real_escape_string($connection,$_POST['feedBackMessage']);
+        $feedBackwebsite=mysqli_real_escape_string($connection,$_POST['website']);
+    
+      
+        $query=""
+    }
+    
 
     
 }// Post method 
