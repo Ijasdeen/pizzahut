@@ -166,11 +166,12 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
         else {
           
          $item_array=array(
-            'item_id' =>$id, 
-             'item_name' =>$name, 
-             'price' =>$price, 
+            'item_id' =>$productId, 
+             'item_name' =>$productName, 
+             'price' =>$productPrice, 
              'image' =>$image,
-              'item_quantity' =>$quantity
+              'item_quantity' =>$quantity,
+              'category_name' => $categoryName
           );
              $cart_data[]=$item_array;
          }
@@ -208,11 +209,12 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
         else {
           
          $item_array=array(
-            'item_id' =>$id, 
-             'item_name' =>$name, 
-             'price' =>$price, 
+            'item_id' =>$productId, 
+             'item_name' =>$productName, 
+             'price' =>$productPrice, 
              'image' =>$image,
-              'item_quantity' =>$quantity
+              'item_quantity' =>$quantity,
+              'category_name' => $categoryName
           );
              $cart_data[]=$item_array;
          }
@@ -249,11 +251,12 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
         else {
           
          $item_array=array(
-            'item_id' =>$id, 
-             'item_name' =>$name, 
-             'price' =>$price, 
+             'item_id' =>$productId, 
+             'item_name' =>$productName, 
+             'price' =>$productPrice, 
              'image' =>$image,
-              'item_quantity' =>$quantity
+              'item_quantity' =>$quantity,
+              'category_name' => $categoryName
           );
              $cart_data[]=$item_array;
          }
@@ -312,11 +315,12 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
         else {
           
          $item_array=array(
-            'item_id' =>$id, 
-             'item_name' =>$name, 
-             'price' =>$price, 
+           'item_id' =>$productId, 
+             'item_name' =>$productName, 
+             'price' =>$productPrice, 
              'image' =>$image,
-              'item_quantity' =>$quantity
+              'item_quantity' =>$quantity,
+              'category_name' => $categoryName
           );
              $cart_data[]=$item_array;
          }
@@ -482,6 +486,7 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
         $city=mysqli_real_escape_string($connection,validateData($_POST['city']));
         $email=mysqli_real_escape_string($connection,validateData($_POST['email']));
       
+        
         if(!preg_match("/^[a-zA-Z ]*$/",$fullName)){
             echo 'InvalidName';
             exit();
@@ -491,12 +496,42 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
             exit();
         }
         else {
+           
             
+        $deleteEmail="DELETE FROM checkoutcustomerdetails where email='$email'"; 
+        mysqli_query($connection,$deleteEmail); 
             
-        $checkOutQuery="INSERT INTO checkoutcustomerdetails (full_name,companyName,mobileNumber,email,address,apartment,city) VALUES('$fullName','$companyName','$mobileNumber','$email',$address','$apartment','$city')";
+        $checkOutQuery="INSERT INTO checkoutcustomerdetails (full_name,companyName,mobileNumber,email,address,apartment,city) VALUES('$fullName','$companyName','$mobileNumber','$email','$address','$apartment','$city')";
         if(mysqli_query($connection,$checkOutQuery)){
-           setcookie("shopping_cart","",time()-(106400*30));
-             echo 'yes'; 
+           
+            $takeId="SELECT user_id from checkoutcustomerdetails where email='$email'";
+            $idResult=mysqli_query($connection,$takeId); 
+            while($row=mysqli_fetch_array($idResult)){
+                $user_id=$row['user_id']; 
+            }
+          
+            if(isset($_COOKIE['shopping_cart'])){
+                $cookie_data=stripslashes($_COOKIE['shopping_cart']);
+                $cart_data=json_decode($cookie_data,true); 
+                
+                foreach($cart_data as $keys =>$values){
+                    $productId=$values['item_id'];
+                    $itemQuantity=$values['item_quantity'];
+                    $categoryName=$values['category_name'];
+                    
+                  $insertQuery="INSERT INTO orderdetails VALUES('','$user_id','$productId','$categoryName','$itemQuantity','completed')";
+                  if(mysqli_query($connection,$insertQuery)){
+                        setcookie("shopping_cart","",time()-(106400*30));
+                        echo 'yes'; 
+                  }
+                    else {
+                        echo mysqli_error($connection); 
+                    }
+                     
+                }
+            }
+            
+          
         }
         else {
           echo mysqli_error($connection); 

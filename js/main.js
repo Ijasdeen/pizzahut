@@ -509,6 +509,7 @@ $(function () {
                     if (data == 'yes') {
                         window.location.href = 'https://www.paypal.com/signin?country.x=LK&locale.x=en_LK';
                     }
+                    console.log(data); 
 
                 },
                 error: function (err) {
