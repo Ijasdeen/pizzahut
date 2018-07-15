@@ -10,7 +10,7 @@
                while($row=mysqli_fetch_array($result)){
                    ?>
                  
-                       <div class="col-md-4 mb-3">
+                       <div class="col-md-4 mb-3 wow bounceIn">
                            <div class="card">
   <img class="card-img-top img-fluid" src="Images/desserts/<?php echo $row['image']?>" alt="<?php echo $row['name']?>">
   <div class="card-body">

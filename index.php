@@ -100,34 +100,34 @@
         <section class="menu-inBottom">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 wow slideInLeft" data-wow-delay="0.1s">
                         <a href="pizza.php">
                     <img src="Images/menu1.PNG" alt="Pizza mneu" class="img-fluid">
                 </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 wow slideInLeft" data-wow-delay='0.2s'>
                         <a href="wings.php">
                 <img src="Images/menu2.PNG" alt="Wings menu" class="img-fluid">
                 </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 wow slideInLeft" data-wow-delay='0.3s'>
                         <a href="sides.php">
                     <img src="Images/menu4.PNG" alt="Sides menu" class="img-fluid">
                 </a>
                     </div>
                 </div>
                 <div class="row second-row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 wow slideInRight" data-wow-delay='0.7s'>
                         <a href="pasta.php">
                       <img src="Images/menu5.PNG" alt="Pasta menu" class="img-fluid">
                   </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 wow slideInRight" data-wow-delay='0.9s'>
                         <a href="wings.php">
                       <img src="Images/menu6.PNG" alt='Wings menu' class="img-fluid">
                   </a>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 wow slideInRight" data-wow-delay='1s'>
                         <a href="drinks.php">
                       <img src="Images/menu7.PNG" alt="drinks Menu" class="img-fluid">
                   </a>

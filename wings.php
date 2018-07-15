@@ -11,7 +11,7 @@
                    ?>
                  
                        <div class="col-md-3 mb-3">
-                           <div class="card">
+                           <div class="card wow bounceInRight">
   <img class="card-img-top img-fluid" src="Images/wings/<?php echo $row['image']?>" alt="<?php echo $row['name']?>">
   <div class="card-body">
     <h4 class="card-title"><?php echo $row['name']?></h4>
