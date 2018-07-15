@@ -1,4 +1,7 @@
 $(function () {
+     showShoppingCart();
+        view();
+    countTotalProducts();
 
 
     //Adding to cart when ".add_to_cart" button is clicked
@@ -28,6 +31,7 @@ $(function () {
                 $(".add_to_cart").text('Add to cart');
                 view();
                 countTotalProducts();
+                 showShoppingCart();
             },
             error: function (err) {
                 console.log(err);
@@ -40,8 +44,7 @@ $(function () {
 
 
 
-    view();
-
+   
     function view() {
         $.ajax({
             url: 'action.php',
@@ -75,7 +78,7 @@ $(function () {
             success: function (data) {
                 view();
                 countTotalProducts();
-                console.log(data);
+                  showShoppingCart();
 
             },
             error: function (err) {
@@ -105,7 +108,7 @@ $(function () {
             success: function (data) {
                 view();
                 countTotalProducts();
-                console.log(data);
+                 showShoppingCart();
 
             },
             error: function (err) {
@@ -118,7 +121,6 @@ $(function () {
 
     });
 
-    countTotalProducts();
 
     function countTotalProducts() {
         $.ajax({
@@ -133,10 +135,7 @@ $(function () {
         });
     }
 
-    $(".drawer-toggle").click(function () {
-        $('.drawer').drawer();
-    });
-
+   
 
 
     $("body").delegate('.deleteProduct', 'click', function () {
@@ -159,7 +158,7 @@ $(function () {
             success: function (data) {
                 view();
                 countTotalProducts();
-
+                 showShoppingCart();
             },
             error: function (err) {
                 console.log(err);
@@ -189,10 +188,10 @@ $(function () {
                 category_name: category_name
             },
             success: function (data) {
-                console.log(data);
+                
                 view();
                 countTotalProducts();
-
+                 showShoppingCart();
             },
             error: function (err) {
                 console.log(err);
@@ -511,6 +510,19 @@ $(function () {
 
     });
  
+    function showShoppingCart(){
+        $.ajax({
+            url:'action.php',
+            method:'POST',
+            data:{showShoppingcart:1},
+            success:function(data){
+                $(".product-wrapper").html(data);
+            },
+            error:function(err){
+                console.log(err); 
+            }
+        });
+    }
 
 
 

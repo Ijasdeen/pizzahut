@@ -73,7 +73,10 @@
              </div>
         </div>
     </section>
-
+      
+      <section class="final-footer bg-dark text-white text-center">
+          <h3>Copyright &copy; Tensee Pizza hut</h3>
+      </section>
     </footer>
     
 

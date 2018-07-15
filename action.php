@@ -500,6 +500,44 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
         
     }
     
+    //This is the final showing of shopping cart
+    if(isset($_POST['showShoppingcart'])){
+    ?>
+          <h3 class="text text-danger">Products on shopping-cart</h3>
+           <table class="table table-hover table-borderless table-responsive">
+                <?php
+               if(isset($_COOKIE['shopping_cart'])){
+                   $cookie_data=stripslashes($_COOKIE['shopping_cart']);
+                   $cart_data=json_decode($cookie_data,true); 
+                   $total=0; 
+                   
+                               
+                   foreach($cart_data as $keys =>$values){
+                       
+                       ?>
+                        <tr>
+                            <td>
+                             <img src="<?php echo $values['image']?>" alt="" class="img-fluid"></td>
+                        <td><p><?php echo $values['item_name']?></p></td>
+                        <td><p>Rs. <?php echo number_format($values['price'],2)?></p></td>
+                        <td><p>x <?php echo $values['item_quantity']?></p></td>
+                        <td><p>Rs .<?php echo $values['item_quantity']*$values['price']?>.00</p></td>
+                        </tr>
+                       <?php
+                            $total+=($values['price'] * $values['item_quantity']);
+                       
+                   }
+               }
+              ?>
+              <tr>
+                 <td colspan="4" class="text-right"><h5>Total :</h5></td>
+                  <td><h5 class="text text-danger">Rs .<?php echo number_format($total,2)?></h5></td>
+              </tr>
+            </table>
+    <?php 
+    
+    }
+    
     
     
     } //POST method    
