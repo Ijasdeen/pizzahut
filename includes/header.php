@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/css/style.css">
     <link rel="stylesheet" href="css/caraousalStyle.css">
+    <link rel="shortcut icon" href="Images/logo.png" />
     <title>Pizza hut</title>
 </head>
 

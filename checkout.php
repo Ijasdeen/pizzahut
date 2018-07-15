@@ -1,11 +1,18 @@
+<?php
+if(!isset($_COOKIE['shopping_cart'])){
+    header("location:index.php");
+}
+?>
 <?php require_once('includes/header.php')?>
 <main>
     <div class="checkout-wrapper">
         <div class="container">
     <div class="row">
-     <div class="col-md-6">
-        <h3 class="text text-left title text-danger">Shipping Address</h3>
-        
+      <div class="col-md-6">
+      <div class="d-flex flex-row">
+          <div class="p-2"><h3 class="text text-danger">Shipping address</h3></div>
+          <div class="p-2 ml-auto"><p class="text text-muted">Have an account? <button class="btn btn-link" data-toggle='modal' data-target='#signInModal'>Login now</button></p></div>
+      </div>
          <form method="POST" id="checkOutSubmitForm">
              <div class="form-group">
                  <label for="Fullname">Your full name</label>
@@ -21,6 +28,11 @@
                  <label for="tel">Mobile number</label>
                  <input type="tel" class="form-control" id="mobileNumber" required>
                  <div class="mobileNumberMessage text text-danger"></div>
+             </div>
+             <div class="form-group">
+                 <label for="Email">Email</label>
+                 <input type="email" class="form-control" id="checkOutEmail" required>
+                 <div class="emailMessage text text-danger"></div>
              </div>
              <div class="form-group">
                  <label for="Address">Address</label>

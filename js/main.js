@@ -1,6 +1,6 @@
 $(function () {
-     showShoppingCart();
-        view();
+    showShoppingCart();
+    view();
     countTotalProducts();
 
 
@@ -31,7 +31,7 @@ $(function () {
                 $(".add_to_cart").text('Add to cart');
                 view();
                 countTotalProducts();
-                 showShoppingCart();
+                showShoppingCart();
             },
             error: function (err) {
                 console.log(err);
@@ -44,7 +44,7 @@ $(function () {
 
 
 
-   
+
     function view() {
         $.ajax({
             url: 'action.php',
@@ -78,7 +78,7 @@ $(function () {
             success: function (data) {
                 view();
                 countTotalProducts();
-                  showShoppingCart();
+                showShoppingCart();
 
             },
             error: function (err) {
@@ -108,7 +108,7 @@ $(function () {
             success: function (data) {
                 view();
                 countTotalProducts();
-                 showShoppingCart();
+                showShoppingCart();
 
             },
             error: function (err) {
@@ -135,7 +135,7 @@ $(function () {
         });
     }
 
-   
+
 
 
     $("body").delegate('.deleteProduct', 'click', function () {
@@ -158,7 +158,7 @@ $(function () {
             success: function (data) {
                 view();
                 countTotalProducts();
-                 showShoppingCart();
+                showShoppingCart();
             },
             error: function (err) {
                 console.log(err);
@@ -188,10 +188,10 @@ $(function () {
                 category_name: category_name
             },
             success: function (data) {
-                
+
                 view();
                 countTotalProducts();
-                 showShoppingCart();
+                showShoppingCart();
             },
             error: function (err) {
                 console.log(err);
@@ -456,7 +456,7 @@ $(function () {
         let address = $("#address").val().trim();
         let apartment = $("#apartment").val().trim();
         let city = $("#city").val().trim();
-
+        let email = $("#checkOutEmail").val().trim();
         if (fullName === '') {
             $(".fullNameMessage").html('<b>Full name required</b>');
             $("#fullName").focus();
@@ -477,6 +477,10 @@ $(function () {
             $(".mobileNumberMessage").html('<b>Mobile number should be 10 digits</b>');
             $("#mobileNumber").focus();
             return;
+        } else if (email === '') {
+            $("#emailMessage").html('<b>Email required</b>');
+            $("#checkOutEmail").focus();
+            return;
         } else {
 
             $.ajax({
@@ -489,19 +493,24 @@ $(function () {
                     mobileNumber: mobileNumber,
                     address: address,
                     apartment: apartment,
-                    city: city
+                    city: city,
+                    email: email
                 },
-                success:function(data) {
-                    if (data=='InvalidName') {
+                success: function (data) {
+                    if (data == 'InvalidName') {
                         $(".fullNameMessage").html('<b>Only letters and whitespace allowed</b>');
                         $("#fullName").focus();
                         return;
                     }
-                    if(data=='yes'){
-                        window.location.reload();
+                    if (data == 'InvalidEmail') {
+                        $("#emailMessage").html('<b>Invalid Email address</b>');
+                        $("#checkOutEmail").focus();
                     }
-                    
-                 },
+                    if (data == 'yes') {
+                        window.location.href = 'https://www.paypal.com/signin?country.x=LK&locale.x=en_LK';
+                    }
+
+                },
                 error: function (err) {
                     console.log(err);
                 }
@@ -509,17 +518,19 @@ $(function () {
         }
 
     });
- 
-    function showShoppingCart(){
+
+    function showShoppingCart() {
         $.ajax({
-            url:'action.php',
-            method:'POST',
-            data:{showShoppingcart:1},
-            success:function(data){
+            url: 'action.php',
+            method: 'POST',
+            data: {
+                showShoppingcart: 1
+            },
+            success: function (data) {
                 $(".product-wrapper").html(data);
             },
-            error:function(err){
-                console.log(err); 
+            error: function (err) {
+                console.log(err);
             }
         });
     }

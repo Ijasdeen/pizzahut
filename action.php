@@ -471,8 +471,8 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
     
     }
     
-    
-    if(isset($_POST['enableCheckOut']) && isset($_POST['fullName']) && isset($_POST['companyName']) && isset($_POST['mobileNumber']) && isset($_POST['address']) && isset($_POST['apartment']) && isset($_POST['city'])){
+    //Checking out. 
+    if(isset($_POST['enableCheckOut']) && isset($_POST['fullName']) && isset($_POST['companyName']) && isset($_POST['mobileNumber']) && isset($_POST['address']) && isset($_POST['apartment']) && isset($_POST['city']) && isset($_POST['email'])){
         
         $fullName=mysqli_real_escape_string($connection,validateData($_POST['fullName'])); 
         $companyName=mysqli_real_escape_string($connection,validateData($_POST['companyName']));
@@ -480,21 +480,31 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
         $address=mysqli_real_escape_string($connection,validateData($_POST['address']));
         $apartment=mysqli_real_escape_string($connection,validateData($_POST['apartment']));
         $city=mysqli_real_escape_string($connection,validateData($_POST['city']));
-        
+        $email=mysqli_real_escape_string($connection,validateData($_POST['email']));
       
         if(!preg_match("/^[a-zA-Z ]*$/",$fullName)){
             echo 'InvalidName';
             exit();
         }
-        
-        $checkOutQuery="INSERT INTO checkoutcustomerdetails (full_name,companyName,mobileNumber,address,apartment,city) VALUES('$fullName','$companyName','$mobileNumber','$address','$apartment','$city')";
+        else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+            echo 'InvalidEmail'; 
+            exit();
+        }
+        else {
+            
+            
+        $checkOutQuery="INSERT INTO checkoutcustomerdetails (full_name,companyName,mobileNumber,email,address,apartment,city) VALUES('$fullName','$companyName','$mobileNumber','$email',$address','$apartment','$city')";
         if(mysqli_query($connection,$checkOutQuery)){
-            echo 'yes'; 
+           setcookie("shopping_cart","",time()-(106400*30));
+             echo 'yes'; 
         }
         else {
           echo mysqli_error($connection); 
         }
        
+            
+        }
+        
          
         
         
@@ -510,10 +520,10 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
                    $cookie_data=stripslashes($_COOKIE['shopping_cart']);
                    $cart_data=json_decode($cookie_data,true); 
                    $total=0; 
-                   
+                   $count=0; 
                                
                    foreach($cart_data as $keys =>$values){
-                       
+                       $count++; 
                        ?>
                         <tr>
                             <td>
@@ -534,6 +544,12 @@ if(isset($_POST['enableAddToCart']) && isset($_POST['image']) && isset($_POST['i
                   <td><h5 class="text text-danger">Rs .<?php echo number_format($total,2)?></h5></td>
               </tr>
             </table>
+            <?php
+                  if($count==0){
+                      echo '<div class="alert alert-warning"><p class="text text-info text-center">Shopping cart is empty</p></div>';
+                  }
+                  
+                ?>
     <?php 
     
     }
